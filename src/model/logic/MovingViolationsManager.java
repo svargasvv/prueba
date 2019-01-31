@@ -2,7 +2,7 @@ package model.logic;
 
 import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
-import model.data_structures.ILinkedList;
+import model.data_structures.LinkedList;
 
 public class MovingViolationsManager implements IMovingViolationsManager {
 
@@ -20,7 +20,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 	}
 
 	@Override
-	public LinkedList <VOMovingViolations> getMovingViolationsWithAccident(String accidentIndicator) {
+	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
 		// TODO Auto-generated method stub
 		return null;
 	}	

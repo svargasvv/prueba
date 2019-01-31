@@ -1,7 +1,7 @@
 package controller;
 
 import api.IMovingViolationsManager;
-import model.data_structures.DoublyLinkedList;
+import model.data_structures.LinkedList;
 import model.logic.MovingViolationsManager;
 import model.vo.VOMovingViolations;
 
@@ -11,7 +11,7 @@ public class Controller {
 	 * Reference to the services manager
 	 */
 	@SuppressWarnings("unused")
-	private static IMovingViolationsManager  manager = new IMovingViolationsManager();
+	private static IMovingViolationsManager  manager = new MovingViolationsManager();
 	
 	public static void loadMovingViolations() {
 		

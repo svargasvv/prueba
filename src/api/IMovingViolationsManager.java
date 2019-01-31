@@ -1,6 +1,6 @@
 package api;
 
-import model.data_structures.DoublyLinkedList;
+import model.data_structures.LinkedList;
 import model.vo.VOMovingViolations;
 
 /**
@@ -17,7 +17,7 @@ public interface IMovingViolationsManager {
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode);
 	
 	
-	public LinkedList <VOMovingViolations> getMovingViolationsWithAccident(String accidentIndicator);
+	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator);
 
 	
 }
