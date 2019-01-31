@@ -7,7 +7,7 @@ package model.data_structures;
  * next, previous
  * @param <T>
  */
-public interface ILinkedList<T> extends Iterable<T> {
+public interface LinkedList<T> extends Iterable<T> {
 
 	Integer getSize();
 
