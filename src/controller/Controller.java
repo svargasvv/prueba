@@ -14,14 +14,14 @@ public class Controller {
 	private static IMovingViolationsManager  manager = new MovingViolationsManager();
 	
 	public static void loadMovingViolations() {
-		
+		manager.loadMovingViolations("path de l archivo ");
 	}
 	
 	public static LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
-		return null;
+		return manager.getMovingViolationsByViolationCode(violationCode);
 	}
 	
 	public static LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
-		return null;
+		return manager.getMovingViolationsByAccident(accidentIndicator);
 	}
 }

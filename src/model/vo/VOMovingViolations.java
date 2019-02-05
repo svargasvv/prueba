@@ -4,8 +4,25 @@ package model.vo;
  * Representation of a Trip object
  */
 public class VOMovingViolations {
-	
-	
+	//----------------------------------------------------------------
+	//Atributos 
+	//----------------------------------------------------------------
+	private int object_ID;
+	private int row; 
+	private String location; 
+	private int adress_ID;
+	private int street_ID;
+	private double xCoord;
+	private double yCoord;
+	private String ticket;
+	private short fineAMT;
+	private short totalPaid;
+	private short penalty1;
+	private short penalty2;
+	private String accidentIndicator; 
+	private String ticketDate;
+	private String violationCode;
+	private String violantionDesc; 
 	
 	public VOMovingViolations(String string, String string2, String string3, String string4, String string5,
 			String string6) {
@@ -18,7 +35,7 @@ public class VOMovingViolations {
 	 */
 	public int objectId() {
 		// TODO Auto-generated method stub
-		return 0;
+		return object_ID;
 	}	
 	
 	
@@ -27,7 +44,7 @@ public class VOMovingViolations {
 	 */
 	public String getLocation() {
 		// TODO Auto-generated method stub
-		return 0;
+		return location;
 	}
 
 	/**
@@ -35,7 +52,7 @@ public class VOMovingViolations {
 	 */
 	public String getTicketIssueDate() {
 		// TODO Auto-generated method stub
-		return "";
+		return ticketDate;
 	}
 	
 	/**
@@ -43,7 +60,7 @@ public class VOMovingViolations {
 	 */
 	public int getTotalPaid() {
 		// TODO Auto-generated method stub
-		return "";
+		return totalPaid;
 	}
 	
 	/**
@@ -51,7 +68,7 @@ public class VOMovingViolations {
 	 */
 	public String  getAccidentIndicator() {
 		// TODO Auto-generated method stub
-		return "";
+		return accidentIndicator;
 	}
 		
 	/**
@@ -59,6 +76,6 @@ public class VOMovingViolations {
 	 */
 	public String  getViolationDescription() {
 		// TODO Auto-generated method stub
-		return "";
+		return violantionDesc;
 	}
 }
