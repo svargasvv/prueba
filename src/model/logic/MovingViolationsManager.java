@@ -23,15 +23,22 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 			while(sca.hasNext()){
 				sca.nextLine();
 				String actual = sca.next();
+				actual = actual.replace(",,,,", ",-1,-1,-1,");
+				actual=actual.replace(",,,", ",-1,-1,");
+				actual=actual.replace(",,", ",-1,");
 				StringTokenizer st = new StringTokenizer(actual,",");
+				ArrayList<String> datosActual = new ArrayList<String>();
 				
 				while(st.hasMoreTokens()){
-					ArrayList<String> datosActual = new ArrayList<String>();
+					
 					datosActual.add(st.nextToken());
-					arreglo.add(new VOMovingViolations(datosActual.get(0), datosActual.get(1), datosActual.get(2), datosActual.get(3), datosActual.get(4), datosActual.get(5)));
-
+					
 				}
-	
+				arreglo.add(new VOMovingViolations(datosActual.get(0), 
+						datosActual.get(1), datosActual.get(2), datosActual.get(3), datosActual.get(4), datosActual.get(5),datosActual.get(6), datosActual.get(7),
+						datosActual.get(8), datosActual.get(9), datosActual.get(10), datosActual.get(11), datosActual.get(12), 
+						datosActual.get(13), datosActual.get(14), datosActual.get(15)));
+
 			}
 			
 		} catch (FileNotFoundException e) {
@@ -42,14 +49,33 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 		
 	@Override
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
-		
-		return null;
+		LinkedList <VOMovingViolations> retorno = new LinkedList <VOMovingViolations>();
+		for ( int i = 0 ; i<arreglo.getSize(); i++)
+		{
+			VOMovingViolations act = arreglo.getElement(i);
+			if ( act.getViolationCode()== violationCode)
+			{
+				retorno.add(act);
+			}
+		}
+		return retorno;
 	}
 
 	@Override
 	public LinkedList <VOMovingViolations> getMovingViolationsByAccident(String accidentIndicator) {
 		// TODO Auto-generated method stub
-		return null;
+		LinkedList <VOMovingViolations> retorno= new LinkedList <VOMovingViolations>();
+		for ( int i = 0 ; i<arreglo.getSize(); i++)
+		{
+			VOMovingViolations act = arreglo.getElement(i);
+			if ( act.getAccidentIndicator()== accidentIndicator)
+			{
+				retorno.add(act);
+			}
+		}
+		
+		
+		return retorno;
 	}	
 
 

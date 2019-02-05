@@ -22,10 +22,31 @@ public class VOMovingViolations {
 	private String accidentIndicator; 
 	private String ticketDate;
 	private String violationCode;
-	private String violantionDesc; 
+	private String violationDesc; 
 	
-	public VOMovingViolations(String string, String string2, String string3, String string4, String string5,
-			String string6) {
+	public VOMovingViolations(String pObject_ID, String pRow, String pLocation, String pAdress_ID, String pStreet_ID,
+			String pXCoord, String pYCoord, String pTicket, String pFineAMT, String pTotalPaid, String pPenalty1 , String pPenalty2, String 
+			pAccidentIndicator , String pTicketDate, String pViolationCode, String pViolationDesc)
+	{
+		object_ID= Integer.parseInt(pObject_ID);
+		row = Integer.parseInt(pRow);
+		location = pLocation;
+		adress_ID= Integer.parseInt(pAdress_ID);
+		street_ID = Integer.parseInt(pStreet_ID);
+		xCoord= Double.parseDouble(pXCoord);
+		yCoord= Double.parseDouble(pYCoord);
+		ticket= pTicket;
+		fineAMT= Short.parseShort(pFineAMT);
+		totalPaid = Short.parseShort(pTotalPaid);
+		penalty1 = Short.parseShort(pPenalty1);
+		penalty2 = Short.parseShort(pPenalty2);
+		accidentIndicator= pAccidentIndicator;
+		ticketDate = pTicketDate;
+		violationCode = pViolationCode;
+		violationDesc = pViolationDesc;
+		
+		
+		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -76,6 +97,14 @@ public class VOMovingViolations {
 	 */
 	public String  getViolationDescription() {
 		// TODO Auto-generated method stub
-		return violantionDesc;
+		return violationDesc;
+	}
+	
+	/**
+	 * 
+	 */
+	public String getViolationCode()
+	{
+		return violationCode; 
 	}
 }
