@@ -4,7 +4,8 @@ package model.vo;
  * Representation of a Trip object
  */
 public class VOMovingViolations {
-
+	
+	
 	
 	/**
 	 * @return id - Identificador único de la infracción

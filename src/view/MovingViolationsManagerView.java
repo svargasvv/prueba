@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import controller.Controller;
 import model.data_structures.ILinkedList;
+import model.data_structures.LinkedList;
 import model.vo.VOMovingViolations;
 
 public class MovingViolationsManagerView 
@@ -11,6 +12,7 @@ public class MovingViolationsManagerView
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);
+		
 		boolean fin=false;
 		while(!fin)
 		{
