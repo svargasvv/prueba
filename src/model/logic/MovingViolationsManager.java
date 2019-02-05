@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import api.IMovingViolationsManager;
 import model.vo.VOMovingViolations;
 import model.data_structures.LinkedList;
@@ -18,15 +20,18 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 		
 		File archivo = new File(movingViolationsFile);
 		try {
-			Scanner sca = new Scanner(archivo);
+			Scanner sc = new Scanner(archivo);
 			
-			while(sca.hasNext()){
-				sca.nextLine();
-				String actual = sca.next();
-				actual = actual.replace(",,,,", ",-1,-1,-1,");
+			while(sc.hasNext()){
+				sc.nextLine();
+				String actual = sc.nextLine();
+				
 				actual=actual.replace(",,,", ",-1,-1,");
 				actual=actual.replace(",,", ",-1,");
+				actual=actual.replace(", ", "_");
+				
 				StringTokenizer st = new StringTokenizer(actual,",");
+				
 				ArrayList<String> datosActual = new ArrayList<String>();
 				
 				while(st.hasMoreTokens()){
@@ -34,6 +39,7 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 					datosActual.add(st.nextToken());
 					
 				}
+				
 				arreglo.add(new VOMovingViolations(datosActual.get(0), 
 						datosActual.get(1), datosActual.get(2), datosActual.get(3), datosActual.get(4), datosActual.get(5),datosActual.get(6), datosActual.get(7),
 						datosActual.get(8), datosActual.get(9), datosActual.get(10), datosActual.get(11), datosActual.get(12), 

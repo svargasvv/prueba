@@ -14,7 +14,7 @@ public class Controller {
 	private static IMovingViolationsManager  manager = new MovingViolationsManager();
 	
 	public static void loadMovingViolations() {
-		manager.loadMovingViolations("path de l archivo ");
+		manager.loadMovingViolations("data/Moving_Violations_Issued_in_January_2018.csv");
 	}
 	
 	public static LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
