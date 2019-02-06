@@ -110,7 +110,7 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 
 
 		}
-
+		size --;
 	}
 
 

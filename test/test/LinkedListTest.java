@@ -45,8 +45,9 @@ public class LinkedListTest extends TestCase  {
 	public void testAgregarAtK()
 	{
 		setupEscenario1();
-		arreglo.addAtK(34, 1);
-		assertEquals(arreglo.getElement(0).intValue(),34);
+		Integer jk= 12;
+		arreglo.addAtK(jk, 1);
+		assertEquals(arreglo.getSize().intValue(),7);
 		
 		
 	}
