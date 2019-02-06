@@ -60,8 +60,10 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 		LinkedList <VOMovingViolations> retorno = new LinkedList <VOMovingViolations>();
 		for ( int i = 0 ; i<arreglo.getSize(); i++)
 		{
+		
 			VOMovingViolations act = arreglo.getElement(i);
-			if ( act.getViolationCode()== violationCode)
+			
+			if ( act.getViolationCode().equals(violationCode))
 			{
 				retorno.add(act);
 			}

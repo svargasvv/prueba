@@ -69,28 +69,23 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 	}
 
 
-	public T getElement(int i) {
-		Node<T> retorno = null;
-		if (size == 0)
-		{
-			return (T)retorno ;
+	public T getElement(int i)  {
+		
+		if (i> size){
+			throw new IndexOutOfBoundsException("invalid enter");
 		}
-		else if (i==1)
-		{
-			retorno = cabeza;
-		}
-		else {
-			int index= 0;
-			for (Node<T> n = cabeza; n!=null;n=n.darSiguiente())
-			{
-				index++;
-				if (index==i)
-				{
-					retorno = n;
-				}
+		else{
+			int contador =0;
+			Node<T> actual = cabeza;
+			while(contador< i && actual!=null){
+				actual = actual.darSiguiente();
+				contador++;
 			}
+			return actual.darElement();
 		}
-		return (T) retorno ;
+		
+		
+		
 	}
 
 	public T getCurrentElement() {
