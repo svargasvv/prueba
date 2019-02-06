@@ -6,45 +6,50 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 
 	private Node<T> cabeza;
 	private int size;
-	private Node<T> actual;
+	
 
 
 	public LinkedList()
 	{
 		cabeza = null;
 		size = 0;
-		actual=null;
 	}
 
 	public Iterator iterator() {
 		// TODO Auto-generated method stub
-		return null;
+		return new IteratorLinkedList<T>(cabeza);
 	}
 
-	
+
 	public Integer getSize() {
 
 		return size;
 	}
 
-	
-	public void add(T element) {
-		if (size==0)
-		{
-			cabeza= (Node<T>)element;
-			actual= cabeza;
-		}
-		else {
-			Node<T> nuevo = (Node<T>) element;
-			cabeza.cambiarAnterior(nuevo);
-			nuevo.cambiarSiguiente(cabeza);
 
-			cabeza = nuevo;
+	public void add(T element)  {
+
+		if (element==null)
+		{
+			throw  new NullPointerException ("Elemento nulo");
+		}else {
+			
+			if (cabeza==null)
+			{
+				Node<T> nuevo = new Node<T>(element) ;
+				cabeza = nuevo;
+				size ++;
+			}else{
+				Node<T> nuevo =  new Node<T>(element) ;
+				cabeza.cambiarAnterior(nuevo);
+				nuevo.cambiarSiguiente(cabeza);
+				cabeza=nuevo;
+				size ++;
+			}
 		}
-		size ++;
 	}
 
-	
+
 	public void addAatEnd(T element) {
 		if (size==0)
 		{
@@ -60,10 +65,10 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 			}
 			anterior.cambiarSiguiente((Node<T>)element);
 		}
-
+		size ++;
 	}
 
-	
+
 	public T getElement(int i) {
 		Node<T> retorno = null;
 		if (size == 0)
@@ -90,10 +95,10 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 
 	public T getCurrentElement() {
 
-		return actual.darElement() ;
+		return cabeza.darElement() ;
 	}
 
-	
+
 	public void delete() {
 		if (size!=0)
 		{
@@ -113,7 +118,7 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 
 	}
 
-	
+
 	public void deleteAtK(int i) {
 		if (size !=0)
 		{
@@ -143,45 +148,45 @@ public class LinkedList<T> implements Iterable<T> , ILinkedList<T>{
 
 	}
 
-	
+
 	public T next() {
-		actual =(actual.darSiguiente()!=null)? actual.darSiguiente():actual;
-		return (T)actual;
+		
+		return cabeza.darSiguiente().darElement();
 	}
 
-	
+
 	public T previous() {
-		actual =(actual.darAnterior()!=null)? actual.darAnterior():actual;
-		return (T) actual;
+		
+		return  cabeza.darAnterior().darElement() ;
 	}
 
-	
+
 	public void addAtK(Object element,int i) {
-	if (size !=0)
-	{
-		if (i ==1 )
+		if (size !=0)
 		{
-			Node<T> nuevo = (Node<T>) element;
-			nuevo.cambiarSiguiente(cabeza);
-			cabeza.cambiarAnterior(nuevo);
-			cabeza=nuevo;
-		}
-		else {
-			Node<T> nuevo = (Node<T>) element;
-			int index= 0;
-			for (Node<T> n = cabeza; n !=null; n = n.darSiguiente())
+			if (i ==1 )
 			{
-				index++;
-				if (index==i)
+				Node<T> nuevo = (Node<T>) element;
+				nuevo.cambiarSiguiente(cabeza);
+				cabeza.cambiarAnterior(nuevo);
+				cabeza=nuevo;
+			}
+			else {
+				Node<T> nuevo = (Node<T>) element;
+				int index= 0;
+				for (Node<T> n = cabeza; n !=null; n = n.darSiguiente())
 				{
-					nuevo.cambiarSiguiente(n);
-					nuevo.cambiarAnterior(n.darAnterior());
-					n.cambiarAnterior(nuevo);
+					index++;
+					if (index==i)
+					{
+						nuevo.cambiarSiguiente(n);
+						nuevo.cambiarAnterior(n.darAnterior());
+						n.cambiarAnterior(nuevo);
+					}
 				}
 			}
 		}
-	}
-		
+
 	}
 
 

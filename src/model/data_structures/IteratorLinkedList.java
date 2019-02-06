@@ -55,14 +55,24 @@ public class IteratorLinkedList<T> implements ListIterator<T> , Serializable{
 
 	@Override
 	public int nextIndex() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	@Override
-	public T previous() {
-		// TODO Auto-generated method stub
-		return null;
+	public T previous() throws NoSuchElementException
+	{
+		T retorno = null;
+		if (hasPrevious()==false)
+		{
+			throw new NoSuchElementException ("El elemento no existe");
+		}
+		else {
+			retorno= previous.darElement();
+			act= previous;
+			previous = previous.darAnterior();
+		}
+		return retorno;
 	}
 
 	@Override

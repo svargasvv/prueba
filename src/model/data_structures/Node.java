@@ -6,9 +6,9 @@ public class Node <T> {
 	private Node<T> siguiente;
 	private Node<T> anterior;
 	
-	public Node()
+	public Node( T element)
 	{
-		elemento= null;
+		this.elemento= element;
 		siguiente = null;
 		anterior= null;
 	}

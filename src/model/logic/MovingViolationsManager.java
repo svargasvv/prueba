@@ -13,46 +13,48 @@ import model.vo.VOMovingViolations;
 import model.data_structures.LinkedList;
 
 public class MovingViolationsManager implements IMovingViolationsManager {
-	
-	private LinkedList<VOMovingViolations> arreglo;
-	
+
+	private LinkedList<VOMovingViolations> arreglo = new LinkedList<VOMovingViolations>();
+
 	public void loadMovingViolations(String movingViolationsFile){
-		
+
 		File archivo = new File(movingViolationsFile);
 		try {
 			Scanner sc = new Scanner(archivo);
-			
+		
+			sc.nextLine();
 			while(sc.hasNext()){
-				sc.nextLine();
+				
 				String actual = sc.nextLine();
 				
 				actual=actual.replace(",,,", ",-1,-1,");
 				actual=actual.replace(",,", ",-1,");
 				actual=actual.replace(", ", "_");
-				
+
 				StringTokenizer st = new StringTokenizer(actual,",");
-				
+
 				ArrayList<String> datosActual = new ArrayList<String>();
-				
+
 				while(st.hasMoreTokens()){
-					
+
 					datosActual.add(st.nextToken());
-					
+
+
 				}
-				
+
 				arreglo.add(new VOMovingViolations(datosActual.get(0), 
 						datosActual.get(1), datosActual.get(2), datosActual.get(3), datosActual.get(4), datosActual.get(5),datosActual.get(6), datosActual.get(7),
 						datosActual.get(8), datosActual.get(9), datosActual.get(10), datosActual.get(11), datosActual.get(12), 
 						datosActual.get(13), datosActual.get(14), datosActual.get(15)));
 
 			}
-			
+		
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 
-		
+
 	@Override
 	public LinkedList <VOMovingViolations> getMovingViolationsByViolationCode (String violationCode) {
 		LinkedList <VOMovingViolations> retorno = new LinkedList <VOMovingViolations>();
@@ -79,8 +81,8 @@ public class MovingViolationsManager implements IMovingViolationsManager {
 				retorno.add(act);
 			}
 		}
-		
-		
+
+
 		return retorno;
 	}	
 
